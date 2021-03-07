@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 // to requre the data from url
 import io from 'socket.io-client';
 
+import './Chat.css';
+
 let socket;
 
 const Chat = ({ location }) => {
