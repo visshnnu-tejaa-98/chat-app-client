@@ -20,11 +20,19 @@ const Chat = ({ location }) => {
 			room: value2.split('=')[1],
 		};
 
-		setName(data.name);
-		setRoom(data.room);
+		const { name, room } = data;
+		setName(name);
+		setRoom(room);
+
 		// socket stuff
 		socket = io(ENDPOINT);
-		socket.emit('join', { name, room });
+		socket.emit('join', { name, room }, () => {});
+
+		// used for disconnecting the server
+		return () => {
+			socket.emit('disconnect');
+			socket.off();
+		};
 	}, [ENDPOINT, window.location.search]);
 	return (
 		<div className='chat'>
