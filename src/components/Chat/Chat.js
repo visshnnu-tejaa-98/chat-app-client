@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 // to requre the data from url
 import io from 'socket.io-client';
 import Infobar from '../Infobar/Infobar';
+import Input from '../Input/Input';
 import './Chat.css';
 
 let socket;
@@ -58,12 +59,7 @@ const Chat = ({ location }) => {
 		<div className='outerContainer'>
 			<div className='containerCss'>
 				<Infobar room={room} />
-				{/* <input
-					type='text'
-					value={message}
-					onKeyPress={(e) => (e.key === 'Enter' ? sendMessage(e) : null)}
-					onChange={(e) => setMessage(e.target.value)}
-				/> */}
+				<Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
 			</div>
 		</div>
 	);
