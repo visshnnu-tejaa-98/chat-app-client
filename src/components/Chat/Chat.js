@@ -13,7 +13,8 @@ const Chat = ({ location }) => {
 	const [room, setRoom] = useState('');
 	const [message, setMessage] = useState('');
 	const [messages, setMessages] = useState([]);
-	const ENDPOINT = 'localhost:8000';
+	// const ENDPOINT = 'localhost:8000';
+	const ENDPOINT = 'https://visshnnu-chat-app.herokuapp.com/';
 
 	useEffect(() => {
 		let string = window.location.search;
